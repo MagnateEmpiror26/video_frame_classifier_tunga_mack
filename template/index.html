@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Pacifico&family=Roboto+Mono:wght@100;200&display=swap" rel="stylesheet">
+    <title>tunga_mack</title>
+</head>
+<body>
+    <nav>
+        <a href={{url_for('delete')}}>Video Frames</a>
+        <p class="project-owners">project by Tunga, Mack</p>
+    </nav>
+    <p class="error-bar"></p>
+    <p class="index-name">{{index}}</p>
+    <p class="class-name-predicted">{{class_name}}</p>
+
+    <section class="container">
+        <div>
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <section class="find-object-container">
+                    <button type="submit" class="find-video-button">Find</button>
+                    <input class="object-to-find-textbox" type="text" name="name_of_object" placeholder="object name ..."/> 
+                </section>
+            </form>
+            <section class="find-object-container">
+                <button class="load-video-button" type="button">Load Video</button>
+                <input class="video-name-textbox" type="text" placeholder="video name"/> 
+            </section>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <input class="upload-video-file-textbox" type="file" name="video" hidden/>
+                <button class="save-video-button" type="submit" disabled=true>Save Video</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img class="found-object-picture" src={{url_for('static', filename="images/apple.jpg")}} alt="frame"/>
+            <p class="image-class-name">pick</p> 
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src={{url_for('static', filename="scripts/script.js")}}></script>
+</html>

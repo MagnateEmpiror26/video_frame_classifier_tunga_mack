@@ -4,4 +4,5 @@ keras==2.8.0
 opencv-python==4.5.5.64
 tensorflow==2.8.0
 click==8
+flask==2.1.1
 
